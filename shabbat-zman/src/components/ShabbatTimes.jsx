@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { convertToAmPm } from '../utils/timeConverters';
 
-const ShabbatTimes = ({ weatherData, locationName, regionName }) => {
+const ShabbatTimes = ({ weatherData }) => {
   // Console log the current date/time
   const now = new Date();
   console.log('Current local date/time:', now.toString());
@@ -77,14 +77,6 @@ const ShabbatTimes = ({ weatherData, locationName, regionName }) => {
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-6 space-y-4">
-      <h2 className="text-xl font-semibold text-gray-800">
-        Shabbat Times for {locationName}{regionName ? `, ${regionName}` : ''} - {upcomingFriday.toLocaleDateString('en-US', { 
-          month: 'long',
-          day: 'numeric',
-          year: 'numeric'
-        })}
-      </h2>
-      
       <div className="space-y-2">
         <div className="flex justify-between items-center">
           <span className="text-gray-600">Candle Lighting:</span>
