@@ -21,5 +21,6 @@ const fetchData = async (url, options = {}) => {
       return [null, error];
     }
   }
+  //add a function to fetch data from the API
   
   export default fetchData; // Default Export

@@ -6,6 +6,7 @@ import LocationSearch from './components/LocationSearch';
 import HebrewDate from './components/HebrewDate';
 import { motion } from 'framer-motion';
 
+
 function App() {
   const [manualLocation, setManualLocation] = useState('');
   const { location, error: locationError, loading: locationLoading } = useGeolocation();
