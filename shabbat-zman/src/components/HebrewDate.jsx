@@ -76,16 +76,6 @@ const HebrewDate = () => {
             fontSize: 'calc(0.5vw + 0.5rem)',
             color: '#FFE1FF',
           }}>
-          {/* <img 
-            src="public/assets/images/torah.avif" 
-            alt="" 
-            style={{
-              width: 'calc(0.8vw + 14px)',
-              height: 'calc(0.8vw + 14px)',
-              marginRight: 'calc(0.3vw + 3px)',
-              objectFit: 'contain'
-            }}
-          /> */}
           {holidayName}
         </motion.p>
       )}
