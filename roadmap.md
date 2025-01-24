@@ -57,10 +57,7 @@ API access to the data is protected by an API key. If at anytime, you find the A
 
 Authentication to the WeatherAPI.com API is provided by passing your API key as request parameter through an API .
 
-key parameter
-key=<YOUR API KEY>
 Request
-Request URL
 Request to WeatherAPI.com API consists of base url and API method. You can make both HTTP or HTTPS request to our API.
 
 Base URL: http://api.weatherapi.com/v1
