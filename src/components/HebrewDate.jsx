@@ -14,7 +14,6 @@ const HebrewDate = () => {
 
         const [data, error] = await fetchData(url);
         if (error || !data) {
-          console.error('Error fetching Hebrew date:', error);
           return;
         }
 
@@ -25,8 +24,8 @@ const HebrewDate = () => {
         if (data.events && data.events.length > 0) {
           setHolidayName(data.events[0]);
         }
-      } catch (err) {
-        console.error('Hebrew date fetch error:', err);
+      } catch {
+        // Silently handle errors
       }
     };
 

@@ -3,23 +3,12 @@ import { convertToAmPm } from '../utils/timeConverters';
 import { motion } from 'framer-motion';
 
 const ShabbatTimes = ({ weatherData }) => {
-  const now = new Date();
-  console.log('Current local date/time:', now.toString());
-
   if (!weatherData || !weatherData.forecast) return null;
-
-  console.log('Forecast days from API:');
-  weatherData.forecast.forecastday.forEach(day => {
-    console.log(`Day in forecast: ${day.date} =>`, new Date(day.date).toString());
-  });
 
   const today = new Date();
   const daysUntilFriday = (5 + 7 - today.getDay()) % 7;
   const upcomingFriday = new Date(today);
-  console.log('Today is:', today.toString());
-  console.log('Days until Friday:', daysUntilFriday);
   upcomingFriday.setDate(today.getDate() + daysUntilFriday);
-  console.log('Upcoming Friday is:', upcomingFriday.toString());
 
   const formatToYyyyMmDd = (dateObj) =>
     dateObj.toLocaleDateString('en-CA');
