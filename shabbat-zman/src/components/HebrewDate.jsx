@@ -10,7 +10,6 @@ const HebrewDate = () => {
     const fetchHebrewDate = async () => {
       try {
         const today = new Date();
-        // Build the API URL for the converter
         const url = `https://www.hebcal.com/converter?cfg=json&gy=${today.getFullYear()}&gm=${today.getMonth() + 1}&gd=${today.getDate()}&g2h=1`;
 
         const [data, error] = await fetchData(url);

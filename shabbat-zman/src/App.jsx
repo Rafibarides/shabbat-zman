@@ -18,7 +18,7 @@ function App() {
     manualLocation ? null : location?.longitude
   );
 
-  // Calculate upcoming Friday for display
+
   const today = new Date();
   const daysUntilFriday = (5 + 7 - today.getDay()) % 7;
   const upcomingFriday = new Date(today);
@@ -114,6 +114,7 @@ function App() {
             <p>Weather Error: {weatherError}</p>
           </div>
         )}
+        
       </motion.div>
     </div>
   );
