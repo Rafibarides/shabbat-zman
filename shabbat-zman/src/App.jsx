@@ -33,9 +33,6 @@ function App() {
     setManualLocation(searchQuery);
   };
 
-  // Add debugging
-  console.log('Weather Data:', weatherData?.forecast?.forecastday[0]?.astro);
-
   return (
     <div style={{
       fontFamily: 'Urbanist',
