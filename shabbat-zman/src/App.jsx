@@ -114,7 +114,6 @@ function App() {
             <p>Weather Error: {weatherError}</p>
           </div>
         )}
-        
       </motion.div>
     </div>
   );

@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Your own custom styles (if any) come after these lines */
-
 @layer base {
   /* Force the HTML/body to use theme('fontFamily.sans'), which should now be Urbanist */
   html, body {
