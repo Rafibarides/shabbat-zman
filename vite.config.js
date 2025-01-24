@@ -11,17 +11,12 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'dist',
+    emptyOutDir: true,  // Clean the output directory before build
     assetsDir: 'assets',
     sourcemap: true,
     minify: true,
     rollupOptions: {
-      input: resolve(__dirname, 'index.html'),  // Use absolute path
-      output: {
-        manualChunks: undefined,
-        entryFileNames: 'assets/[name]-[hash].js',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]'
-      }
+      input: resolve(__dirname, 'index.html')
     }
   },
   server: {
