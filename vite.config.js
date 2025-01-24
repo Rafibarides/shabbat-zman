@@ -17,6 +17,12 @@ export default defineConfig({
     minify: true,
     rollupOptions: {
       input: resolve(__dirname, 'index.html'),
+      output: {
+        // Ensure the built files use .js extension
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
+      }
     },
   },
   server: {
@@ -26,5 +32,10 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'src'),
     },
+    // Force .js extensions
+    extensions: ['.js', '.jsx', '.json']
   },
+  esbuild: {
+    jsxInject: `import React from 'react'`
+  }
 });
