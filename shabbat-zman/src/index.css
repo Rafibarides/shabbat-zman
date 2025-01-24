@@ -19,5 +19,20 @@ body {
 }
 
 input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Example: Adjust some basic page styling exclusively for portrait orientation */
+@media (orientation: portrait) {
+  /* Target the container of the pills */
+  div[style*="flex-direction: column"] > div {
+    margin-bottom: calc(1.5vw + 12px) !important; /* Increased spacing between pills */
+    padding-top: calc(1.2vw + 10px) !important;    /* Make pills taller */
+    padding-bottom: calc(1.2vw + 10px) !important; /* Make pills taller */
+  }
+  
+  /* Remove margin from the last pill to avoid extra space at the bottom */
+  div[style*="flex-direction: column"] > div:last-child {
+    margin-bottom: 0 !important;
+  }
 }

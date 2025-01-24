@@ -25,13 +25,13 @@ const LocationSearch = ({ onLocationSubmit }) => {
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Enter city, zip code, or address"
+          placeholder="Enter a City, Zip Code..."
           style={{
             flex: 1,
             padding: 'calc(0.4vw + 5px) calc(0.6vw + 6px)',
             borderRadius: 'calc(0.8vw + 8px)',
             border: '1px solid #B200CC',
-            background: 'rgba(255, 255, 255, 0.1)',
+            background: 'rgba(255, 255, 255, 0.09)',
             color: '#ffffff',
             outline: 'none',
             fontSize: 'calc(0.5vw + 0.5rem)'
