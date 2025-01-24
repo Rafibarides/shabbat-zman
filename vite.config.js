@@ -6,8 +6,9 @@ import { dirname, resolve } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+// https://<USERNAME>.github.io/<REPO>/ <- this is what we need to match
 export default defineConfig({
-  base: './',
+  base: '/shabbat-zman/', // Change this to match your repo name
   plugins: [react()],
   build: {
     outDir: 'dist',
