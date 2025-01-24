@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import fetchData from '../utils/fetchData';
 
 const API_KEY = 'a693943efa754abb860163744241803';
-const BASE_URL = 'http://api.weatherapi.com/v1';
+const BASE_URL = 'https://api.weatherapi.com/v1';
 
 const useWeatherApi = (latitude, longitude) => {
   const [weatherData, setWeatherData] = useState(null);
