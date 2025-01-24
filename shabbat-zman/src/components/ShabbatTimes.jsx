@@ -160,7 +160,7 @@ const ShabbatTimes = ({ weatherData }) => {
           }}
         >
           <span style={timeRowStyle}>
-            <img src={`public/assets/images/${item.icon}`} alt="" style={iconStyle} />
+            <img src={`/assets/images/${item.icon}`} alt="" style={iconStyle} />
             <span style={labelStyle}>{item.label}</span>
           </span>
           <span style={timeStyle}>{item.time}</span>
