@@ -6,7 +6,6 @@ const LocationSearch = ({ onLocationSubmit }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [isFocused, setIsFocused] = useState(false);
-
   const suggestionsRef = useRef(null);
 
   const handleSubmit = (e) => {
@@ -52,14 +51,15 @@ const LocationSearch = ({ onLocationSubmit }) => {
     <form 
       onSubmit={handleSubmit} 
       style={{
-        maxWidth: 'min(350px, 80vw)',
-        margin: '0 auto',
-        position: 'relative'
+        width: '100%',
+        position: 'relative',
       }}
+      className="search-form"
     >
       <div style={{
         display: 'flex',
-        gap: 'calc(0.5vw + 3px)'
+        gap: 'calc(0.5vw + 3px)',
+        width: '100%'
       }}>
         <input
           type="text"
@@ -72,14 +72,13 @@ const LocationSearch = ({ onLocationSubmit }) => {
           placeholder="Enter a City, Zip Code..."
           style={{
             flex: 1,
-            padding: 'calc(0.4vw + 5px) calc(0.6vw + 6px)',
             borderRadius: 'calc(0.8vw + 8px)',
             border: '1px solid #B200CC',
             background: 'rgba(255, 255, 255, 0.09)',
             color: '#ffffff',
             outline: 'none',
-            fontSize: 'calc(0.5vw + 0.5rem)'
           }}
+          className="search-input"
         />
         <motion.button 
           type="submit"
@@ -91,19 +90,16 @@ const LocationSearch = ({ onLocationSubmit }) => {
           animate={{
             scale: 1,
             boxShadow: '0 0 0 rgba(255, 255, 255, 0)',
-            transition: {
-              duration: 0
-            }
+            transition: { duration: 0 }
           }}
           style={{
-            padding: 'calc(0.4vw + 5px) calc(0.8vw + 8px)',
             borderRadius: 'calc(0.8vw + 8px)',
             border: 'none',
             background: `linear-gradient(135deg, #B200CC 0%, #74267F 100%)`,
             color: '#ffffff',
             cursor: 'pointer',
-            fontSize: 'calc(0.5vw + 0.5rem)'
           }}
+          className="search-button"
         >
           Search
         </motion.button>

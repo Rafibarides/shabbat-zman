@@ -50,7 +50,7 @@ function App() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         style={{
-          maxWidth: 'min(600px, 90vw)',
+          maxWidth: 'min(600px, 96vw)',
           margin: '0 auto',
           display: 'flex',
           flexDirection: 'column',

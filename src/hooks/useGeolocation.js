@@ -7,7 +7,7 @@ const useGeolocation = () => {
 
   useEffect(() => {
     if (!("geolocation" in navigator)) {
-      setError("Geolocation is not supported by your browser");
+      setError("Please enable location services in your browser settings, or search for your location.");
       setLoading(false);
       return;
     }

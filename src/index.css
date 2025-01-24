@@ -22,14 +22,13 @@ input::placeholder {
 
 /* Example: Adjust some basic page styling exclusively for portrait orientation */
 @media (orientation: portrait) {
-  /* Target the container of the pills */
+  /* Keep the pill styles */
   div[style*="flex-direction: column"] > div {
-    margin-bottom: calc(1.5vw + 12px) !important; /* Increased spacing between pills */
-    padding-top: calc(1.2vw + 10px) !important;    /* Make pills taller */
-    padding-bottom: calc(1.2vw + 10px) !important; /* Make pills taller */
+    margin-bottom: calc(1.5vw + 12px) !important;
+    padding-top: calc(1.2vw + 10px) !important;
+    padding-bottom: calc(1.2vw + 10px) !important;
   }
   
-  /* Remove margin from the last pill to avoid extra space at the bottom */
   div[style*="flex-direction: column"] > div:last-child {
     margin-bottom: 0 !important;
   }
@@ -42,4 +41,37 @@ input::placeholder {
 
 .location-suggestion-item:hover {
   opacity: 1;
+}
+
+/* Mobile-first styles for search form */
+.search-form {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.search-input,
+.search-button {
+  padding: calc(1.6vw + 16px) calc(1.2vw + 12px) !important;
+  font-size: calc(0.9vw + 0.9rem) !important;
+  height: auto !important;
+  min-height: unset !important;
+  box-sizing: border-box !important;
+  margin-top: 20px !important;
+}
+
+/* Desktop styles - restore original dimensions and centering */
+@media (min-width: 768px) {
+  .search-form {
+    width: 350px !important;
+    max-width: 350px !important;
+    margin: 0 auto !important;  /* Restored centering */
+  }
+
+  .search-input,
+  .search-button {
+    padding: calc(0.4vw + 5px) calc(0.6vw + 6px) !important;
+    font-size: calc(0.5vw + 0.5rem) !important;
+  }
 }
