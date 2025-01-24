@@ -8,7 +8,7 @@ const __dirname = dirname(__filename);
 
 // https://<USERNAME>.github.io/<REPO>/ <- this is what we need to match
 export default defineConfig({
-  base: '/shabbat-zman/', // Change this to match your repo name
+  base: '',
   plugins: [react()],
   build: {
     outDir: 'dist',
