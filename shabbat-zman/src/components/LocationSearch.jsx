@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const LocationSearch = ({ onLocationSubmit }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -12,21 +13,56 @@ const LocationSearch = ({ onLocationSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto mb-6">
-      <div className="flex gap-2">
+    <form onSubmit={handleSubmit} style={{
+      maxWidth: 'min(350px, 80vw)',
+      margin: '0 auto'
+    }}>
+      <div style={{
+        display: 'flex',
+        gap: 'calc(0.5vw + 3px)'
+      }}>
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Enter city, zip code, or address"
-          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          style={{
+            flex: 1,
+            padding: 'calc(0.4vw + 5px) calc(0.6vw + 6px)',
+            borderRadius: 'calc(0.8vw + 8px)',
+            border: '1px solid #B200CC',
+            background: 'rgba(255, 255, 255, 0.1)',
+            color: '#ffffff',
+            outline: 'none',
+            fontSize: 'calc(0.5vw + 0.5rem)'
+          }}
         />
-        <button
+        <motion.button 
           type="submit"
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          whileHover={{ 
+            scale: 1.05,
+            boxShadow: '0 0 25px rgba(255, 255, 255, 0.2)'
+          }}
+          whileTap={{ scale: 0.95 }}
+          animate={{
+            scale: 1,
+            boxShadow: '0 0 0 rgba(255, 255, 255, 0)',
+            transition: {
+              duration: 0
+            }
+          }}
+          style={{
+            padding: 'calc(0.4vw + 5px) calc(0.8vw + 8px)',
+            borderRadius: 'calc(0.8vw + 8px)',
+            border: 'none',
+            background: `linear-gradient(135deg, #B200CC 0%, #74267F 100%)`,
+            color: '#ffffff',
+            cursor: 'pointer',
+            fontSize: 'calc(0.5vw + 0.5rem)'
+          }}
         >
           Search
-        </button>
+        </motion.button>
       </div>
     </form>
   );

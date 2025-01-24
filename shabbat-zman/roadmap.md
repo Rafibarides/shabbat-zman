@@ -259,6 +259,20 @@ const calculateShabbatTimes = (sunsetTime) => {
 1. Test functionality across devices and browsers.
 2. Deploy on GitHub Pages using `gh-pages`.
 
+# Asset Report
+
+### Asset Details
+All assets are `.avif` files with transparent backgrounds. Files are located in `public/assets/images/`.
+
+| Asset Name | Corresponds With        | File Path                        |
+|------------|-------------------------|----------------------------------|
+| candles    | Candle lighting time    | `public/assets/images/candles.avif` |
+| wine       | Shabbat over time       | `public/assets/images/wine.avif`    |
+| siddur     | Netz hachama            | `public/assets/images/siddur.avif`  |
+| torah      | The Parsha              | `public/assets/images/torah.avif`   |
+| cloves     | Rabeinu Tam             | `public/assets/images/cloves.avif`  |
+
+
 ---
 
 ## Libraries to Install

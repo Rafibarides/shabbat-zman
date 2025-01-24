@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import fetchData from '../utils/fetchData';
+import { motion } from 'framer-motion';
 
 const HebrewDate = () => {
   const [hebrewDate, setHebrewDate] = useState('');
@@ -34,17 +35,60 @@ const HebrewDate = () => {
   }, []);
 
   return (
-    <div className="p-4 bg-white rounded-lg shadow-sm space-y-2">
+    <div style={{
+      textAlign: 'center',
+    }}>
       {hebrewDate && (
-        <>
-          <p className="text-md">{hebrewDate}</p>
-        </>
+        <motion.p
+          animate={{
+            opacity: [1, 0.7, 1],
+          }}
+          transition={{
+            duration: 3,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse"
+          }}
+          style={{
+            fontSize: 'calc(1vw + 0.9rem)',
+            fontWeight: '500',
+            color: '#ffffff',
+            marginBottom: 'calc(0.2vw + 2px)',
+          }}>
+          {hebrewDate}
+        </motion.p>
       )}
-
       {holidayName && (
-        <>
-          <p>{holidayName}</p>
-        </>
+        <motion.p
+          animate={{
+            opacity: [1, 0.7, 1],
+          }}
+          transition={{
+            duration: 3,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: 1.5 // Offset the animation to create a nice effect with the date
+          }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: 'calc(0.5vw + 0.5rem)',
+            color: '#FFE1FF',
+          }}>
+          {/* <img 
+            src="public/assets/images/torah.avif" 
+            alt="" 
+            style={{
+              width: 'calc(0.8vw + 14px)',
+              height: 'calc(0.8vw + 14px)',
+              marginRight: 'calc(0.3vw + 3px)',
+              objectFit: 'contain'
+            }}
+          /> */}
+          {holidayName}
+        </motion.p>
       )}
     </div>
   );
