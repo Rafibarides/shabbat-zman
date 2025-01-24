@@ -54,8 +54,6 @@ Want to choose which weather field to return in the API response? Change it from
 
 API access to the data is protected by an API key. If at anytime, you find the API key has become vulnerable, please regenerate the key using Regenerate button next to the API key.
 
-#my api key is: a693943efa754abb860163744241803
-
 
 Authentication to the WeatherAPI.com API is provided by passing your API key as request parameter through an API .
 
