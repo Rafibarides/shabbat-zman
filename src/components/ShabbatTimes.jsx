@@ -6,21 +6,35 @@ const ShabbatTimes = ({ weatherData }) => {
   if (!weatherData || !weatherData.forecast) return null;
 
   const today = new Date();
-  const daysUntilFriday = (5 + 7 - today.getDay()) % 7;
+  const dayOfWeek = today.getDay(); // 0=Sunday, 5=Friday, 6=Saturday
+  let daysUntilFriday;
+
+  if (dayOfWeek === 5) {
+    // It's Friday. Show today as Friday
+    daysUntilFriday = 0;
+  } else if (dayOfWeek === 6) {
+    // It's Saturday. Show "yesterday" as Friday
+    daysUntilFriday = -1;
+  } else {
+    // Sunday through Thursday => next Friday
+    daysUntilFriday = (5 + 7 - dayOfWeek) % 7;
+  }
+
   const upcomingFriday = new Date(today);
   upcomingFriday.setDate(today.getDate() + daysUntilFriday);
+  
+  // Saturday will be the day after that "Friday" date
+  const nextDay = new Date(upcomingFriday.getTime() + 24 * 60 * 60 * 1000);
 
   const formatToYyyyMmDd = (dateObj) =>
     dateObj.toLocaleDateString('en-CA');
 
   const fridayString = formatToYyyyMmDd(upcomingFriday);
-  const nextDay = new Date(upcomingFriday.getTime() + 24 * 60 * 60 * 1000);
   const saturdayString = formatToYyyyMmDd(nextDay);
 
   const fridayForecast = weatherData.forecast.forecastday.find(
     (day) => day.date === fridayString
   );
-
   const saturdayForecast = weatherData.forecast.forecastday.find(
     (day) => day.date === saturdayString
   );

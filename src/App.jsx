@@ -19,11 +19,21 @@ function App() {
     manualLocation ? null : location?.longitude
   );
 
-
   const today = new Date();
-  const daysUntilFriday = (5 + 7 - today.getDay()) % 7;
+  const dayOfWeek = today.getDay(); // 0=Sunday, 5=Friday, 6=Saturday
+  let daysUntilFriday;
+  
+  if (dayOfWeek === 5) {
+    daysUntilFriday = 0; // It's Friday
+  } else if (dayOfWeek === 6) {
+    daysUntilFriday = -1; // It's Saturday (use yesterday as Friday)
+  } else {
+    daysUntilFriday = (5 + 7 - dayOfWeek) % 7; // Sunday–Thursday => next Friday
+  }
+
   const upcomingFriday = new Date(today);
   upcomingFriday.setDate(today.getDate() + daysUntilFriday);
+
   const fridayLabel = upcomingFriday.toLocaleDateString('en-US', {
     month: 'long',
     day: 'numeric',

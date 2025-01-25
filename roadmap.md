@@ -259,15 +259,6 @@ const calculateShabbatTimes = (sunsetTime) => {
 ### Asset Details
 All assets are `.avif` files with transparent backgrounds. Files are located in `public/assets/images/`.
 
-| Asset Name | Corresponds With        | File Path                        |
-|------------|-------------------------|----------------------------------|
-| candles    | Candle lighting time    | `public/assets/images/candles.avif` |
-| wine       | Shabbat over time       | `public/assets/images/wine.avif`    |
-| siddur     | Netz hachama            | `public/assets/images/siddur.avif`  |
-| torah      | The Parsha              | `public/assets/images/torah.avif`   |
-| cloves     | Rabeinu Tam             | `public/assets/images/cloves.avif`  |
-
-
 ---
 
 ## Libraries to Install
@@ -275,46 +266,4 @@ All assets are `.avif` files with transparent backgrounds. Files are located in 
 2. **Tailwind CSS**: Styling framework.
 3. **ESLint** and **Prettier** (optional): Code linting and formatting.
 
----
-
-# Deployment Instructions
-1. Push the code to a GitHub repository.
-2. Create a GitHub Actions workflow for automated deployment. Add a `.github/workflows/deploy.yml` file with the following configuration:
-
-   ```yaml
-   name: Deploy to GitHub Pages
-
-   on:
-     push:
-       branches:
-         - main  # Replace with your default branch if different
-
-   jobs:
-     deploy:
-       runs-on: ubuntu-latest
-
-       steps:
-       - name: Checkout repository
-         uses: actions/checkout@v3
-
-       - name: Set up Node.js
-         uses: actions/setup-node@v3
-         with:
-           node-version: '16'
-
-       - name: Install dependencies
-         run: npm install
-
-       - name: Build project
-         run: npm run build
-
-       - name: Deploy to GitHub Pages
-         uses: peaceiris/actions-gh-pages@v3
-         with:
-           github_token: ${{ secrets.GITHUB_TOKEN }}
-           publish_dir: ./build
-   ```
-
-3. Commit and push the workflow file.
-4. After this setup, any new commits pushed to the `main` branch will automatically trigger the workflow, build the project, and deploy it to GitHub Pages.
 
