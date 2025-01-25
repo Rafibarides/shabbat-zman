@@ -49,20 +49,13 @@ function App() {
       fontFamily: 'Urbanist',
       width: '100vw',
       minHeight: '100vh',
-      height: '100vh',
       background: 'linear-gradient(135deg, #0a0a0a 0%, #2a0934 100%)',
       color: '#ffffff',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      overflow: 'hidden',
       margin: 0,
-      padding: 0,
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0
+      padding: 0
     }}>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -73,7 +66,8 @@ function App() {
           margin: '0 auto',
           display: 'flex',
           flexDirection: 'column',
-          gap: 'calc(1.5vw + 8px)'
+          gap: 'calc(1.5vw + 8px)',
+          paddingBottom: 'calc(4vw + 30px)',
         }}>
         {weatherData && (
           <h2 style={{

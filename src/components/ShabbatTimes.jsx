@@ -86,13 +86,17 @@ const ShabbatTimes = ({ weatherData }) => {
 
   const labelStyle = {
     color: '#FFE1FF',
-    fontSize: 'calc(0.6vw + 0.6rem)',
+    fontSize: window.matchMedia('(orientation: portrait)').matches 
+      ? 'calc(1vw + 1rem)'
+      : 'calc(0.6vw + 0.6rem)',
     fontWeight: '500',
   };
 
   const timeStyle = {
     color: '#ffffff',
-    fontSize: 'calc(0.6vw + 0.6rem)',
+    fontSize: window.matchMedia('(orientation: portrait)').matches 
+      ? 'calc(1vw + 0.9rem)'
+      : 'calc(0.6vw + 0.6rem)',
     fontWeight: '600',
   };
 
@@ -154,12 +158,20 @@ const ShabbatTimes = ({ weatherData }) => {
             }
           }}
           whileTap={{
-            scale: 0.98,
-            boxShadow: '0 0 20px rgba(255, 255, 255, 0.08)',
+            scale: window.matchMedia('(orientation: portrait)').matches ? 1.05 : 0.98,
+            boxShadow: window.matchMedia('(orientation: portrait)').matches 
+              ? '0 0 40px rgba(255, 255, 255, 0.2)'
+              : '0 0 20px rgba(255, 255, 255, 0.08)',
+            transition: {
+              type: "spring",
+              stiffness: 400,
+              damping: 15
+            }
           }}
           style={{
             ...pillStyle,
-            transition: 'box-shadow 0.3s ease-in-out'
+            transition: 'box-shadow 0.3s ease-in-out',
+            cursor: 'pointer'
           }}
         >
           <span style={timeRowStyle}>
