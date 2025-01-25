@@ -47,13 +47,22 @@ function App() {
   return (
     <div style={{
       fontFamily: 'Urbanist',
+      width: '100vw',
       minHeight: '100vh',
-      background: `linear-gradient(135deg, #0a0a0a 0%, #2a0934 100%)`,
+      height: '100vh',
+      background: 'linear-gradient(135deg, #0a0a0a 0%, #2a0934 100%)',
       color: '#ffffff',
-      padding: 'calc(2vw + 8px) calc(1vw + 8px)',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      overflow: 'hidden',
+      margin: 0,
+      padding: 0,
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0
     }}>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
