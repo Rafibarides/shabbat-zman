@@ -45,8 +45,10 @@ function App() {
     setManualLocation(searchQuery);
   };
 
-  const isSupport = window.location.pathname === '/support';
-  const isPrivacy = window.location.pathname === '/privacy';
+  const pathname = window.location.pathname;
+  const route = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+  const isSupport = route === '/support';
+  const isPrivacy = route === '/privacy';
 
   return (
     <div style={{
@@ -151,6 +153,11 @@ function App() {
       }}>
         <a
           href="/privacy"
+          onClick={(e) => {
+            e.preventDefault();
+            window.history.pushState({}, '', '/privacy');
+            window.dispatchEvent(new PopStateEvent('popstate'));
+          }}
           style={{
             color: 'rgba(255, 255, 255, 0.5)',
             fontSize: 'calc(0.3vw + 0.4rem)',
