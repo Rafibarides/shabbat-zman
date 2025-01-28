@@ -20,15 +20,15 @@ function App() {
   );
 
   const today = new Date();
-  const dayOfWeek = today.getDay(); // 0=Sunday, 5=Friday, 6=Saturday
+  const dayOfWeek = today.getDay();
   let daysUntilFriday;
   
   if (dayOfWeek === 5) {
-    daysUntilFriday = 0; // It's Friday
+    daysUntilFriday = 0; 
   } else if (dayOfWeek === 6) {
-    daysUntilFriday = -1; // It's Saturday (use yesterday as Friday)
+    daysUntilFriday = -1;
   } else {
-    daysUntilFriday = (5 + 7 - dayOfWeek) % 7; // Sunday–Thursday => next Friday
+    daysUntilFriday = (5 + 7 - dayOfWeek) % 7; 
   }
 
   const upcomingFriday = new Date(today);
