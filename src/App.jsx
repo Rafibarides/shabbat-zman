@@ -55,7 +55,8 @@ function App() {
       flexDirection: 'column',
       justifyContent: 'center',
       margin: 0,
-      padding: 0
+      padding: 0,
+      position: 'relative'
     }}>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -129,6 +130,31 @@ function App() {
           </div>
         )}
       </motion.div>
+
+      <div style={{
+        position: 'absolute',
+        bottom: '10px',
+        left: '0',
+        right: '0',
+        textAlign: 'center',
+        padding: '10px'
+      }}>
+        <a
+          href="https://docs.google.com/document/d/1Z9YNOM6hwBd_LIhYoU0DxGR_vYxQY-GJ5sAhA_efFtc/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: 'rgba(255, 255, 255, 0.5)',
+            fontSize: 'calc(0.3vw + 0.4rem)',
+            textDecoration: 'none',
+            transition: 'color 0.2s ease'
+          }}
+          onMouseEnter={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.8)'}
+          onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.5)'}
+        >
+          Privacy Policy
+        </a>
+      </div>
     </div>
   );
 }
