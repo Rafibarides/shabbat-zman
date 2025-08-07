@@ -70,40 +70,42 @@ const ShabbatTimes = ({ weatherData }) => {
   const rabeinuTam = calculateAdjustedTime(saturdaySunset, 72);
 
   const pillStyle = {
-    background: 'rgba(111, 0, 127, 0.1)',
+    background: 'rgba(111, 0, 127, 0.12)',
     backdropFilter: 'blur(10px)',
-    border: '1px solid rgba(255, 255, 255, 0.1)',
-    borderRadius: 'calc(2vw + 16px)',
-    padding: 'calc(0.8vw + 6px) calc(1vw + 10px)',
+    border: '1px solid rgba(255, 255, 255, 0.08)',
+    borderRadius: 'calc(1.5vw + 12px)',
+    padding: 'calc(0.6vw + 6px) calc(0.8vw + 8px)',
     margin: 'calc(0.2vw + 1px) 0',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
-    maxWidth: 'min(300px, 80vw)',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    maxWidth: 'min(280px, 80vw)',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1)',
   };
 
   const labelStyle = {
-    color: '#FFE1FF',
+    color: '#F3E8FF',
     fontSize: window.matchMedia('(orientation: portrait)').matches 
-      ? 'calc(1vw + 1rem)'
-      : 'calc(0.6vw + 0.6rem)',
+      ? 'calc(0.8vw + 0.85rem)'
+      : 'calc(0.5vw + 0.5rem)',
     fontWeight: '500',
+    letterSpacing: '0.01em',
   };
 
   const timeStyle = {
     color: '#ffffff',
     fontSize: window.matchMedia('(orientation: portrait)').matches 
-      ? 'calc(1vw + 0.9rem)'
-      : 'calc(0.6vw + 0.6rem)',
+      ? 'calc(0.8vw + 0.75rem)'
+      : 'calc(0.5vw + 0.5rem)',
     fontWeight: '600',
+    letterSpacing: '0.02em',
   };
 
   const iconStyle = {
-    width: 'calc(1vw + 16px)',
-    height: 'calc(1vw + 16px)',
-    marginRight: 'calc(0.5vw + 4px)',
+    width: 'calc(0.8vw + 14px)',
+    height: 'calc(0.8vw + 14px)',
+    marginRight: 'calc(0.4vw + 3px)',
     objectFit: 'contain'
   };
 
@@ -121,9 +123,9 @@ const ShabbatTimes = ({ weatherData }) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: 'calc(0.5vw + 4px)',
+        gap: 'calc(0.4vw + 4px)',
         width: '100%',
-        padding: 'calc(1vw + 8px) 0'
+        padding: 'calc(0.8vw + 8px) 0'
       }}>
       {[
         { icon: "candles.avif", label: "Candle Lighting", time: shabbatStart },
@@ -136,43 +138,14 @@ const ShabbatTimes = ({ weatherData }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
             opacity: 1, 
-            y: 0,
-            scale: 1,
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            transition: {
-              duration: 0.4
-            }
+            y: 0
           }}
           transition={{
             duration: 0.4,
             delay: 0.4 + index * 0.1,
             ease: 'easeOut'
           }}
-          whileHover={{
-            scale: 1.02,
-            boxShadow: '0 0 30px rgba(255, 255, 255, 0.12)',
-            transition: {
-              type: "tween",
-              duration: 0.3,
-              ease: [0.33, 1, 0.68, 1]
-            }
-          }}
-          whileTap={{
-            scale: window.matchMedia('(orientation: portrait)').matches ? 1.05 : 0.98,
-            boxShadow: window.matchMedia('(orientation: portrait)').matches 
-              ? '0 0 40px rgba(255, 255, 255, 0.2)'
-              : '0 0 20px rgba(255, 255, 255, 0.08)',
-            transition: {
-              type: "spring",
-              stiffness: 400,
-              damping: 15
-            }
-          }}
-          style={{
-            ...pillStyle,
-            transition: 'box-shadow 0.3s ease-in-out',
-            cursor: 'pointer'
-          }}
+          style={pillStyle}
         >
           <span style={timeRowStyle}>
             <img

@@ -48,17 +48,31 @@ const LocationSearch = ({ onLocationSubmit }) => {
   };
 
   return (
-    <form 
-      onSubmit={handleSubmit} 
-      style={{
-        width: '100%',
-        position: 'relative',
-      }}
-      className="search-form"
-    >
+    <>
+      <style>
+        {`
+          .location-suggestion-item:hover {
+            background-color: rgba(178, 0, 204, 0.15) !important;
+            transition: background-color 0.2s ease;
+          }
+          .search-input:focus {
+            border-color: #D946EF !important;
+            box-shadow: 0 0 0 2px rgba(217, 70, 239, 0.1) !important;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+          }
+        `}
+      </style>
+      <form 
+        onSubmit={handleSubmit} 
+        style={{
+          width: '100%',
+          position: 'relative',
+        }}
+        className="search-form"
+      >
       <div style={{
         display: 'flex',
-        gap: 'calc(0.5vw + 3px)',
+        gap: 'calc(0.3vw + 2px)',
         width: '100%'
       }}>
         <input
@@ -72,28 +86,29 @@ const LocationSearch = ({ onLocationSubmit }) => {
           placeholder="Enter a City, Zip Code..."
           style={{
             flex: 1,
-            borderRadius: 'calc(0.8vw + 8px)',
+            borderRadius: 'calc(0.6vw + 6px)',
             border: '1px solid #B200CC',
             background: 'rgba(255, 255, 255, 0.09)',
             color: '#ffffff',
             outline: 'none',
+            transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
           }}
           className="search-input"
         />
         <motion.button 
           type="submit"
           whileHover={{ 
-            scale: 1.05,
-            boxShadow: '0 0 25px rgba(255, 255, 255, 0.2)'
+            scale: 1.02,
+            filter: 'brightness(1.1)'
           }}
-          whileTap={{ scale: 0.95 }}
-          animate={{
-            scale: 1,
-            boxShadow: '0 0 0 rgba(255, 255, 255, 0)',
-            transition: { duration: 0 }
+          whileTap={{ scale: 0.98 }}
+          transition={{
+            type: "tween",
+            duration: 0.2,
+            ease: "easeInOut"
           }}
           style={{
-            borderRadius: 'calc(0.8vw + 8px)',
+            borderRadius: 'calc(0.6vw + 6px)',
             border: 'none',
             background: `linear-gradient(135deg, #B200CC 0%, #74267F 100%)`,
             color: '#ffffff',
@@ -138,7 +153,7 @@ const LocationSearch = ({ onLocationSubmit }) => {
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
-                fontSize: 'calc(0.4vw + 0.5rem)'
+                fontSize: 'calc(0.3vw + 0.4rem)'
               }}
             >
               {item.name}
@@ -148,7 +163,8 @@ const LocationSearch = ({ onLocationSubmit }) => {
           ))}
         </ul>
       )}
-    </form>
+      </form>
+    </>
   );
 };
 
